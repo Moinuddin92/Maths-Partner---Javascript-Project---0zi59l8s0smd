@@ -143,7 +143,7 @@ function savedSolution() {
           <p class="para p1">${e.operation}</p>
           <textarea id="textArea" disabled>${e.expression}</textarea>
           <p class="para p2">${e.result}</p>
-          <button id="deleteCard" value=${idx} onclick="${cardDelete(idx)}">X</button>
+          <button id="deleteCard" value=${idx}X</button>
         </div>
       `;
       cardContainer.innerHTML += cardHtml;
@@ -153,10 +153,10 @@ function savedSolution() {
   }
 }
 
-// const deleteCardAll = document.querySelectorAll("#deleteCard");
-// deleteCardAll.forEach((e) => {
-//   e.onclick = (evt) => {
-//     cardDelete(evt.target.getAttribute("value"));
-//   }
-// })
+const deleteCardAll = document.querySelectorAll("#deleteCard");
+deleteCardAll.forEach((e) => {
+  e.onclick = (evt) => {
+    cardDelete(evt.target.getAttribute("value"));
+  }
+})
 
