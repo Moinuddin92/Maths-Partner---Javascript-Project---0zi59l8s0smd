@@ -107,18 +107,18 @@ document.addEventListener("click", function (event) {
 //   savedSol.setAttribute("disabled",true);
 // })
 
-// document.addEventListener("click", function (event) {
-//   if (event.target.matches("#deleteCard")) {
-//     cardDelete(event.target.getAttribute("value"));
-//   }
-// });
+document.addEventListener("click", function (event) {
+  if (event.target.matches("#deleteCard")) {
+    cardDelete(event.target.getAttribute("value"));
+  }
+});
 
 const deleteCard = document.getElementById("deleteCard");
 
-function cardDelete(index) {
-  console.log(index);
+function cardDelete(event) {
+  console.log(event);
   let array = JSON.parse(localStorage.getItem("localData"));
-  array.splice(index, 1);
+  array.splice(event, 1);
   window.localStorage.setItem("localData", JSON.stringify(array));
 
   savedSolution();
@@ -137,18 +137,13 @@ function savedSolution() {
     console.log("No Data To Render");
     return;
   } else {
-    storaaa.map((e, idx) => {
+    storaaa.forEach((e, idx) => {
       const cardHtml = `
         <div class="card">
           <p class="para p1">${e.operation}</p>
           <textarea id="textArea" disabled>${e.expression}</textarea>
           <p class="para p2">${e.result}</p>
-          <button id="deleteCard" value=${idx} onclick="${
-            function(){
-            cardDelete(idx);
-            location.reload();
-            }
-                                                        }">X</button>
+          <button id="deleteCard" value=${idx}><i class="fa-solid fa-trash-can fa-1x"></i></button>
         </div>
       `;
       cardContainer.innerHTML += cardHtml;
@@ -158,10 +153,9 @@ function savedSolution() {
   }
 }
 
-// const deleteCardAll = document.querySelectorAll("#deleteCard");
-// deleteCardAll.forEach((e) => {
-//   e.onclick = (evt) => {
-//     cardDelete(evt.target.getAttribute("value"));
-//   }
-// })
-
+const deleteCardAll = document.querySelectorAll("#deleteCard");
+deleteCardAll.forEach((e) => {
+  e.onclick = (evt) => {
+    cardDelete(evt.target.getAttribute("value"));
+  }
+})
