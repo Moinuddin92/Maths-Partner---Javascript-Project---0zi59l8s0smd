@@ -153,10 +153,10 @@ function savedSolution() {
   }
 }
 
-const deleteCardAll = document.querySelectorAll("#deleteCard");
-deleteCardAll.forEach((e) => {
-  e.onclick = (evt) => {
-    cardDelete(evt.target.getAttribute("value"));
-  }
-})
+// const deleteCardAll = document.querySelectorAll("#deleteCard");
+// deleteCardAll.forEach((e) => {
+//   e.onclick = (evt) => {
+//     cardDelete(evt.target.getAttribute("value"));
+//   }
+// })
 
