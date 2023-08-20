@@ -143,7 +143,7 @@ function savedSolution() {
           <p class="para p1">${e.operation}</p>
           <textarea id="textArea" disabled>${e.expression}</textarea>
           <p class="para p2">${e.result}</p>
-          <button id="deleteCard" value=${idx}>X</button>
+          <button id="deleteCard" value=${idx} onclick="cardDelete(idx)">X</button>
         </div>
       `;
       cardContainer.innerHTML += cardHtml;
