@@ -107,11 +107,11 @@ document.addEventListener("click", function (event) {
 //   savedSol.setAttribute("disabled",true);
 // })
 
-// document.addEventListener("click", function (event) {
-//   if (event.target.matches("#deleteCard")) {
-//     cardDelete(event.target.getAttribute("value"));
-//   }
-// });
+document.addEventListener("click", function (event) {
+  if (event.target.matches("#deleteCard")) {
+    cardDelete(event.target.getAttribute("value"));
+  }
+});
 
 const deleteCard = document.getElementById("deleteCard");
 
@@ -143,7 +143,7 @@ function savedSolution() {
           <p class="para p1">${e.operation}</p>
           <textarea id="textArea" disabled>${e.expression}</textarea>
           <p class="para p2">${e.result}</p>
-          <button id="deleteCard" value=${idx} onclick="${cardDelete(idx)}">X</i></button>
+          <button id="deleteCard" value=${idx}>X</i></button>
         </div>
       `;
       cardContainer.innerHTML += cardHtml;
@@ -153,9 +153,9 @@ function savedSolution() {
   }
 }
 
-// const deleteCardAll = document.querySelectorAll("#deleteCard");
-// deleteCardAll.map((e) => {
-//   // e.onclick = (evt) => {
-//   //   // cardDelete(evt.target.getAttribute("value"));
-//   // }
-// })
+const deleteCardAll = document.querySelectorAll("#deleteCard");
+deleteCardAll.map((e) => {
+  e.onclick = (evt) => {
+    cardDelete(evt.target.getAttribute("value"));
+  }
+})
